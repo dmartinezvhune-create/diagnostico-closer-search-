@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico · Closer Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--card:#111111;--line:#2a2418;--gold:#C9A84C;--gold2:#DCC077;--ivory:#F3EEE2;--mute:#a9a395;--err:#e0735f}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:'DM Sans',system-ui,sans-serif;line-height:1.55;hyphens:none;-webkit-hyphens:none}
+.wrap{max-width:640px;margin:0 auto;padding:28px 18px 60px}
+.brand{font-family:'Cinzel',serif;font-size:22px;letter-spacing:.04em}
+.brand span{color:var(--gold)}
+.sub{font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-top:2px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;line-height:1.1;margin:34px 0 10px}
+h1 em{color:var(--gold2)}
+.intro{color:var(--mute);text-align:justify;margin:0 0 26px}
+.sec{background:var(--card);border:1px solid var(--line);padding:22px 20px;margin-bottom:16px}
+.sec h2{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.18em;color:var(--gold);margin:0 0 16px;font-weight:500;text-transform:uppercase}
+label.q{display:block;font-weight:500;margin:16px 0 6px}
+label.q:first-of-type{margin-top:0}
+.hint{display:block;font-size:13px;color:var(--mute);font-weight:400;margin-top:2px}
+input[type=text],input[type=tel],input[type=url],textarea,select{width:100%;background:#0b0b0b;border:1px solid var(--line);color:var(--ivory);padding:12px 13px;font:inherit;border-radius:0;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+textarea{min-height:84px;resize:vertical}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:#0b0b0b;padding:11px 12px;cursor:pointer}
+.opt input{accent-color:var(--gold);margin-top:4px}
+.opt:has(input:checked){border-color:var(--gold)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--mute);text-align:justify}
+.consent input{accent-color:var(--gold);margin-top:4px}
+button{width:100%;margin-top:6px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#0a0a0a;border:0;padding:16px;font:700 15px 'DM Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.err{color:var(--err);font-size:13px;margin-top:10px;min-height:18px}
+.foot{font-size:12px;color:var(--mute);text-align:justify;margin-top:22px}
+.sign{margin-top:14px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">CLOSER <span>SEARCH</span></div>
+  <div class="sub">Selección de talento de cierre</div>
+
+  <h1>Diagnóstico <em>sin compromiso</em></h1>
+  <p class="intro">Antes de empezar comprobamos que tu oferta, tu embudo y tus cierres están listos para incorporar un equipo de cierre. Son unas pocas preguntas y tardas unos 3 minutos. Si no encajamos, te lo decimos con claridad.</p>
+
+  <form id="f" novalidate>
+    <div class="sec">
+      <h2>1 · Sobre ti</h2>
+      <label class="q" for="nombre">Nombre y apellidos</label>
+      <input type="text" id="nombre" autocomplete="name">
+      <label class="q" for="ig">Tu Instagram <span class="hint">Por ejemplo @tuusuario</span></label>
+      <input type="text" id="ig">
+      <label class="q" for="web">Tu web o página de venta <span class="hint">Si todavía no tienes, déjalo en blanco</span></label>
+      <input type="url" id="web" placeholder="https://">
+      <label class="q" for="wa">Tu WhatsApp (con prefijo de país)</label>
+      <input type="tel" id="wa" placeholder="+34 …" autocomplete="tel">
+      <label class="q" for="pais">País desde el que vendes</label>
+      <input type="text" id="pais">
+    </div>
+
+    <div class="sec">
+      <h2>2 · Tu negocio</h2>
+      <label class="q" for="vende">¿Qué vendes y a quién?</label>
+      <textarea id="vende" placeholder="Una o dos líneas"></textarea>
+      <label class="q" for="ticket">Precio de tu producto o programa principal</label>
+      <input type="text" id="ticket" placeholder="Por ejemplo 2.000 €">
+      <label class="q">Facturación media mensual aproximada</label>
+      <div class="opts" data-name="fact">
+        <label class="opt"><input type="radio" name="fact" value="Menos de 5.000 €"> Menos de 5.000 €</label>
+        <label class="opt"><input type="radio" name="fact" value="5.000 – 15.000 €"> 5.000 – 15.000 €</label>
+        <label class="opt"><input type="radio" name="fact" value="15.000 – 50.000 €"> 15.000 – 50.000 €</label>
+        <label class="opt"><input type="radio" name="fact" value="Más de 50.000 €"> Más de 50.000 €</label>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>3 · Tu embudo y tus cierres</h2>
+      <label class="q">¿Tienes un embudo activo que genere llamadas o conversaciones de venta cada semana?</label>
+      <div class="opts" data-name="embudo">
+        <label class="opt"><input type="radio" name="embudo" value="Sí, cada semana"> Sí, cada semana</label>
+        <label class="opt"><input type="radio" name="embudo" value="A veces"> A veces, es irregular</label>
+        <label class="opt"><input type="radio" name="embudo" value="Todavía no"> Todavía no</label>
+      </div>
+      <label class="q" for="leads">¿Cuántos leads o llamadas de venta tienes al mes, más o menos?</label>
+      <input type="text" id="leads">
+      <label class="q">¿Has cerrado ventas tú mismo en llamada o por mensaje?</label>
+      <div class="opts" data-name="cierre">
+        <label class="opt"><input type="radio" name="cierre" value="Sí, varias"> Sí, varias</label>
+        <label class="opt"><input type="radio" name="cierre" value="Sí, alguna"> Sí, alguna</label>
+        <label class="opt"><input type="radio" name="cierre" value="No"> No, todavía no</label>
+      </div>
+      <label class="q" for="quien">¿Quién cierra hoy las ventas?</label>
+      <input type="text" id="quien" placeholder="Yo, un closer, un equipo…">
+    </div>
+
+    <div class="sec">
+      <h2>4 · Lo que buscas</h2>
+      <label class="q" for="busca">¿Qué te gustaría resolver con un equipo de cierre?</label>
+      <textarea id="busca"></textarea>
+      <label class="q" for="num">¿Cuántos closers te imaginas incorporando?</label>
+      <select id="num">
+        <option value="">Elige una opción</option>
+        <option>1 closer</option>
+        <option>2 a 3 closers</option>
+        <option>4 o más</option>
+        <option>No lo sé todavía</option>
+      </select>
+    </div>
+
+    <div class="sec">
+      <label class="consent"><input type="checkbox" id="ok"> <span>Acepto que Closer Search trate estos datos para valorar mi diagnóstico y contactarme. Puedes pedir que los borremos escribiendo a david@closersearch.com.</span></label>
+    </div>
+
+    <button type="submit">Enviar mi diagnóstico</button>
+    <div class="err" id="err" role="alert"></div>
+  </form>
+
+  <p class="foot">Al pulsar el botón se abre WhatsApp con tus respuestas ya escritas; solo tienes que enviar el mensaje. Contenido elaborado con asistencia de IA (Art. 50.4 del Reglamento (UE) de IA).</p>
+  <p class="sign">David Martínez-Bayer<br>CEO y Fundador de Closer Search · www.closersearch.com</p>
+</div>
+
+<script>
+(function(){
+  var NUM = "34663347696";
+  var f = document.getElementById('f');
+  function v(id){return (document.getElementById(id).value||'').trim();}
+  function r(name){var e=f.querySelector('input[name='+name+']:checked');return e?e.value:'';}
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var miss=[];
+    if(!v('nombre'))miss.push('nombre');
+    if(!v('wa'))miss.push('WhatsApp');
+    if(!v('vende'))miss.push('qué vendes');
+    if(!r('fact'))miss.push('facturación');
+    if(!r('embudo'))miss.push('embudo');
+    if(!r('cierre'))miss.push('cierres');
+    if(!document.getElementById('ok').checked)miss.push('aceptación de datos');
+    var err=document.getElementById('err');
+    if(miss.length){err.textContent='Falta por completar: '+miss.join(', ')+'.';return;}
+    err.textContent='';
+    var t=[
+      'DIAGNÓSTICO · Closer Search',
+      '',
+      'Nombre: '+v('nombre'),
+      'Instagram: '+(v('ig')||'—'),
+      'Web: '+(v('web')||'—'),
+      'WhatsApp: '+v('wa'),
+      'País: '+(v('pais')||'—'),
+      '',
+      'Qué vende y a quién: '+v('vende'),
+      'Precio principal: '+(v('ticket')||'—'),
+      'Facturación mensual: '+r('fact'),
+      '',
+      'Embudo activo: '+r('embudo'),
+      'Leads o llamadas al mes: '+(v('leads')||'—'),
+      'Ha cerrado él mismo: '+r('cierre'),
+      'Quién cierra hoy: '+(v('quien')||'—'),
+      '',
+      'Qué busca resolver: '+(v('busca')||'—'),
+      'Nº de closers: '+(v('num')||'—')
+    ].join('\n');
+    window.location.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(t);
+  });
+})();
+</script>
+</body>
+</html>
